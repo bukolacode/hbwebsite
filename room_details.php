@@ -17,7 +17,7 @@ use Mpdf\Tag\Div;
 
 <?php
   if(!isset($_GET['id'])){
-    redirect('index.php');
+    redirect('rooms.php');
   }
 
   $data = filteration($_GET);
@@ -25,7 +25,7 @@ use Mpdf\Tag\Div;
   $room_res = select("SELECT * FROM `rooms` WHERE id=? AND status=? AND removed=?",[$data['id'],1,0],'iii');
 
   if(mysqli_num_rows($room_res)==0){
-    redirect('index.php');
+    redirect('rooms.php');
   }
   $room_data = mysqli_fetch_assoc($room_res);
 ?>
